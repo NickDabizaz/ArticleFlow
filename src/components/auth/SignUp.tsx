@@ -21,12 +21,10 @@ export default function SignUp({ onClose, onSwitchToSignIn }: SignUpProps) {
       className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50"
       onClick={onClose}
     >
-      {/* Modal Container */}
       <Card
         className="w-full max-w-md relative bg-white shadow-lg"
         onClick={(e) => e.stopPropagation()}
       >
-        {/* Close Button */}
         <button
           onClick={onClose}
           className="absolute top-4 right-4 text-gray-500 hover:text-gray-700"
@@ -51,48 +49,65 @@ export default function SignUp({ onClose, onSwitchToSignIn }: SignUpProps) {
           <CardTitle className="text-3xl font-bold">Sign Up</CardTitle>
           <CardDescription>Create a new account to get started.</CardDescription>
         </CardHeader>
-
         <CardContent>
-          <form className="space-y-4">
-            {/* Email */}
-            <div className="space-y-2">
-              <Label htmlFor="email">Email</Label>
-              <Input id="email" type="email" required placeholder="Enter your email" />
-            </div>
+  <form className="space-y-4">
+    {/* First Name and Last Name in one row */}
+    <div className="flex space-x-4">
+      <div className="flex-1 space-y-2">
+        <Label htmlFor="firstName">First Name (required)</Label>
+        <Input id="firstName" type="text" required placeholder="Enter your first name" />
+      </div>
+      <div className="flex-1 space-y-2">
+        <Label htmlFor="lastName">Last Name (optional)</Label>
+        <Input id="lastName" type="text" placeholder="Enter your last name" />
+      </div>
+    </div>
 
-            {/* Password */}
-            <div className="space-y-2">
-              <Label htmlFor="password">Password</Label>
-              <Input id="password" type="password" required placeholder="Enter your password" />
-            </div>
+    {/* Email */}
+    <div className="space-y-2">
+      <Label htmlFor="email">Email</Label>
+      <Input id="email" type="email" required placeholder="Enter your email" />
+    </div>
 
-            {/* Buttons */}
-            <Button
-              type="submit"
-              className="w-full border border-black hover:border-gray-400 hover:bg-gray-100"
-            >
-              Sign Up
-            </Button>
+    {/* Password */}
+    <div className="space-y-2">
+      <Label htmlFor="password">Password</Label>
+      <Input id="password" type="password" required placeholder="Enter your password" />
+    </div>
 
-            <Button variant="outline" className="w-full">
-              <GoogleIcon className="mr-2 h-4 w-4" />
-              Sign up with Google
-            </Button>
+    {/* Confirmation Password */}
+    <div className="space-y-2">
+      <Label htmlFor="confirmPassword">Confirm Password</Label>
+      <Input id="confirmPassword" type="password" required placeholder="Confirm your password" />
+    </div>
 
-            {/* Links */}
-            <div className="flex justify-between">
-              <button
-                onClick={(e) => {
-                  e.preventDefault(); // Prevent default behavior
-                  onSwitchToSignIn(); // Switch to Sign In modal
-                }}
-                className="inline-block text-sm underline text-blue-500 hover:text-blue-700"
-              >
-                Already have an account? Sign in
-              </button>
-            </div>
-          </form>
-        </CardContent>
+    {/* Buttons */}
+    <Button
+      type="submit"
+      className="w-full border border-black hover:border-gray-400 hover:bg-gray-100"
+    >
+      Sign Up
+    </Button>
+
+    <Button variant="outline" className="w-full">
+      <GoogleIcon className="mr-2 h-4 w-4" />
+      Sign up with Google
+    </Button>
+
+    {/* Links */}
+    <div className="flex justify-between">
+      <button
+        onClick={(e) => {
+          e.preventDefault(); // Prevent default behavior
+          onSwitchToSignIn(); // Switch to Sign In modal
+        }}
+        className="inline-block text-sm underline"
+      >
+        Already have an account? Sign in
+      </button>
+    </div>
+  </form>
+</CardContent>
       </Card>
     </div>
   );

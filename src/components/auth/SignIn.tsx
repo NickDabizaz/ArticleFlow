@@ -91,7 +91,7 @@ export default function SignIn({ onClose, onSwitchToSignUp }: SignInProps) {
                   e.preventDefault(); // Prevent default behavior
                   onSwitchToSignUp(); // Switch to Sign Up modal
                 }}
-                className="inline-block text-sm underline text-blue-500 hover:text-blue-700"
+                className="inline-block text-sm underline"
               >
                 Don&apos;t have an account? Sign up
               </button>
